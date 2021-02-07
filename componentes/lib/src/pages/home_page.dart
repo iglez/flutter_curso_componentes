@@ -13,6 +13,18 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _lista() {
-    return ListView();
+    return ListView(
+      children: _crearItems(),
+    );
+  }
+
+  List<Widget> _crearItems() {
+    return [
+      ListTile(title: Text('Hola Mundo')),
+      Divider(),
+      ListTile(title: Text('Hola Mundo')),
+      Divider(),
+      ListTile(title: Text('Hola Mundo')),
+      ];
   }
 }
