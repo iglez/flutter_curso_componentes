@@ -12,7 +12,7 @@ class HomePageTemp extends StatelessWidget {
       appBar: AppBar(
         title: Text('Componentes Temp'),
       ),
-      body: ListView(children: _crearItems()),
+      body: ListView(children: _crearItemsCorto()),
     );
   }
 
@@ -28,11 +28,20 @@ class HomePageTemp extends StatelessWidget {
       // lista.add(tempWidget);
       // lista.add(Divider());
 
-      lista..add(tempWidget)
-           ..add(Divider());
+      lista..add(tempWidget)..add(Divider());
     }
 
     return lista;
   }
 
+  List<Widget> _crearItemsCorto() {
+    var widgets  = opciones.map((item) {
+      return ListTile(
+        title: Text(item)
+      );
+    }).toList();
+
+
+    return widgets;
+  }
 }
