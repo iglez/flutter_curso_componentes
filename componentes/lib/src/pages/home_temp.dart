@@ -12,13 +12,27 @@ class HomePageTemp extends StatelessWidget {
       appBar: AppBar(
         title: Text('Componentes Temp'),
       ),
-      body: ListView(
-        children: crearItems()
-      ),
+      body: ListView(children: _crearItems()),
     );
   }
 
-  List<Widget> crearItems() {
-    return [];
+  List<Widget> _crearItems() {
+    List<Widget> lista = new List<Widget>();
+
+    // for in
+    for (String opt in opciones) {
+      final tempWidget = ListTile(
+        title: Text(opt),
+      );
+
+      // lista.add(tempWidget);
+      // lista.add(Divider());
+
+      lista..add(tempWidget)
+           ..add(Divider());
+    }
+
+    return lista;
   }
+
 }
