@@ -40,7 +40,11 @@ class HomePageTemp extends StatelessWidget {
       return Column(
         children: [
           ListTile(
-            title: Text(item)
+            leading: Icon(Icons.library_add),
+            title: Text(item),
+            subtitle: Text('subtitulo'),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: () {},
           ),
           Divider()
         ],
