@@ -5,20 +5,23 @@ class _MenuProvider {
   List<dynamic> opciones = [];
 
   _MenuProvider() {
-    cargarData();
+    // cargarData();
   }
 
-  void cargarData() {
-    rootBundle.loadString('data/menu_opts.json').then((data) {
-      Map dataMap = json.decode(data);
-      print(dataMap);
+  // Ojo se cambio a regresar un future, para que nos regrese hasta que ya se carga
+  Future<List<dynamic>> cargarData() async {
+    final resp = await rootBundle.loadString('data/menu_opts.json');
 
-      // OJO realizar un hot restart
-      print(dataMap['nombreApp']);
-      print(dataMap['rutas']);
+    Map dataMap = json.decode(resp);
+    // print(dataMap);
 
-      opciones = dataMap['rutas'];
-    });
+    // // OJO realizar un hot restart
+    // print(dataMap['nombreApp']);
+    // print(dataMap['rutas']);
+
+    opciones = dataMap['rutas'];
+
+    return opciones;
   }
 }
 
