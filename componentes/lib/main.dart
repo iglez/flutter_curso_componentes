@@ -8,7 +8,7 @@ import 'package:componentes/src/pages/alert_page.dart';
 import 'package:componentes/src/pages/avatar_page.dart';
 
 void main() => runApp(MyApp());
- 
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -17,10 +17,14 @@ class MyApp extends StatelessWidget {
       title: 'Componentes App',
       // home: HomePage(),
       initialRoute: '/',
-      routes: <String, WidgetBuilder> {
-        '/' : (BuildContext context) => HomePage(),
-        'alert' : (BuildContext context) => AlertPage(),
-        'avatar' : (BuildContext context) => AvatarPage(),
+      routes: <String, WidgetBuilder>{
+        '/': (BuildContext context) => HomePage(),
+        'alert': (BuildContext context) => AlertPage(),
+        'avatar': (BuildContext context) => AvatarPage(),
+      },
+      onGenerateRoute: (settings) {
+        print('Ruta desconocida llamada ${settings.name}');
+        return MaterialPageRoute(builder: (context) => AlertPage());
       },
     );
   }
