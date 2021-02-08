@@ -14,9 +14,13 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _lista() {
+    menuProvider.cargarData().then((opciones) {
+      print('_lista');
+      print(opciones);
+    });
 
     // mandando llamar para ver si funciona
-    print(menuProvider.opciones); // ver en debig console
+    // print(menuProvider.opciones); // ver en debig console
     // Solo se ve en restart
 
     return ListView(
