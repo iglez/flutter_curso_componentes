@@ -9,7 +9,11 @@ class CardPage extends StatelessWidget {
       ),
       body: ListView(
         padding: EdgeInsets.all(10.0),
-        children: [_cargarTipo1()]
+        children: [
+          _cargarTipo1(),
+          SizedBox(height: 30.0),
+          _cargarTipo2(),
+        ]
       ),
     );
   }
@@ -38,6 +42,18 @@ class CardPage extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+
+  Widget _cargarTipo2() {
+    return Card(
+      child: Column(
+        children: [
+          Image(
+            image: NetworkImage('https://wallpapercave.com/wp/wp3720374.jpg'),
+          ),
+        ]
+      ),  
     );
   }
 }
