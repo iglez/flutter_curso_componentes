@@ -52,6 +52,7 @@ class CardPage extends StatelessWidget {
           Image(
             image: NetworkImage('https://wallpapercave.com/wp/wp3720374.jpg'),
           ),
+          Text('Ejemplo texto')
         ]
       ),  
     );
