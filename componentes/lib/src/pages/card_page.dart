@@ -49,10 +49,20 @@ class CardPage extends StatelessWidget {
     return Card(
       child: Column(
         children: [
-          Image(
+          FadeInImage(
             image: NetworkImage('https://wallpapercave.com/wp/wp3720374.jpg'),
+            placeholder: AssetImage('assets/jar-loading.gif'),
+            fadeInDuration: Duration(milliseconds: 200),
+            height: 200,
+            fit: BoxFit.cover
           ),
-          Text('Ejemplo texto')
+          // Image(
+          //   image: NetworkImage('https://wallpapercave.com/wp/wp3720374.jpg'),
+          // ),
+          Container(
+            padding: EdgeInsets.all(10.0),
+            child: Text('Ejemplo texto')
+          )
         ]
       ),  
     );
