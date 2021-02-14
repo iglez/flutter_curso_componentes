@@ -23,6 +23,12 @@ class AvatarPage extends StatelessWidget {
           )
         ],
       ),
+      body: Center(
+        child: FadeInImage(
+          image: NetworkImage('https://www.muycomputer.com/wp-content/uploads/2019/08/The-Mandalorian.jpg'),
+          placeholder: AssetImage('assets/jar-loading.gif'),
+        ),
+      ),
     );
   }
 }
