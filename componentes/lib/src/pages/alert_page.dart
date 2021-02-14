@@ -34,7 +34,13 @@ class AlertPage extends StatelessWidget {
       builder: (context) {
         return AlertDialog(
           title: Text('Titulo'),
-          content: Text('Contenido'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text('Este es el contenido de la caja de la alerta'),
+              FlutterLogo( size: 100.0, )
+            ],
+          ),
         );
       }
     );
