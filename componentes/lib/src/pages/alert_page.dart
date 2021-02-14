@@ -13,7 +13,9 @@ class AlertPage extends StatelessWidget {
           color: Colors.blue,
           textColor: Colors.white,
           shape: StadiumBorder(),
-          onPressed: () {},
+          onPressed: () {
+            mostrarAlerta(context);
+          },
         ),
       ),
       floatingActionButton: FloatingActionButton(
@@ -22,6 +24,19 @@ class AlertPage extends StatelessWidget {
           Navigator.pop(context);
         },
       ),
+    );
+  }
+
+  void mostrarAlerta(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: true,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('Titulo'),
+          content: Text('Contenido'),
+        );
+      }
     );
   }
 }
