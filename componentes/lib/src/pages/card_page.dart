@@ -20,6 +20,9 @@ class CardPage extends StatelessWidget {
 
   Widget _cargarTipo1() {
     return Card(
+      // elevation: 0.0,
+      elevation: 10.0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
       child: Column(
         children: [
           ListTile(
