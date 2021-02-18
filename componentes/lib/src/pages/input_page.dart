@@ -32,7 +32,7 @@ class _InputPageState extends State<InputPage> {
       // autofocus: true,
       textCapitalization: TextCapitalization.words,
       decoration: InputDecoration(
-        counter: Text('Letras 0'),
+        counter: Text('Letras ${_nombre.length}'),
         hintText: 'Nombre de la persona',
         labelText: 'Nombre',
         helperText: 'Solo un nombre',
