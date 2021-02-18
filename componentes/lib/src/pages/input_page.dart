@@ -10,8 +10,20 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-       
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Inputs de texto'),
+      ),
+      body: ListView(
+        padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
+        children: [_crearInput()],
+      ),
+    );
+  }
+
+  Widget _crearInput() {
+    return TextField(
+
     );
   }
 }
