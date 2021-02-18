@@ -8,6 +8,8 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  String _nombre = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,10 +34,12 @@ class _InputPageState extends State<InputPage> {
         helperText: 'Solo un nombre',
         suffixIcon: Icon(Icons.accessibility),
         icon: Icon(Icons.account_circle),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8.0)
-        ),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
       ),
+      onChanged: (valor) {
+        _nombre = valor;
+        print(_nombre);
+      },
     );
   }
 }
