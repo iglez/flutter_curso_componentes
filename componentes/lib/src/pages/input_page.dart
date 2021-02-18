@@ -18,7 +18,11 @@ class _InputPageState extends State<InputPage> {
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
-        children: [_crearInput()],
+        children: [
+          _crearInput(),
+          Divider(),
+          _crearPersona(),
+        ],
       ),
     );
   }
@@ -38,8 +42,14 @@ class _InputPageState extends State<InputPage> {
       ),
       onChanged: (valor) {
         _nombre = valor;
-        print(_nombre);
+        setState(() {});
       },
+    );
+  }
+
+  Widget _crearPersona() {
+    return ListTile(
+      title: Text('Tu nombre es: $_nombre'),
     );
   }
 }
