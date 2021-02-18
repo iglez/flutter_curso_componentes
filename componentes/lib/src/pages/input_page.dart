@@ -23,7 +23,19 @@ class _InputPageState extends State<InputPage> {
 
   Widget _crearInput() {
     return TextField(
-
+      // autofocus: true,
+      textCapitalization: TextCapitalization.words,
+      decoration: InputDecoration(
+        counter: Text('Letras 0'),
+        hintText: 'Nombre de la persona',
+        labelText: 'Nombre',
+        helperText: 'Solo un nombre',
+        suffixIcon: Icon(Icons.accessibility),
+        icon: Icon(Icons.account_circle),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8.0)
+        ),
+      ),
     );
   }
 }
