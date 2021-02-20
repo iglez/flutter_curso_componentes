@@ -27,7 +27,7 @@ class _InputPageState extends State<InputPage> {
           Divider(),
           _crearPassword(),
           Divider(),
-          _crearFecha(),
+          _crearFecha(context),
           Divider(),
           _crearPersona(),
         ],
@@ -96,7 +96,7 @@ class _InputPageState extends State<InputPage> {
     );
   }
 
-  Widget _crearFecha() {
+  Widget _crearFecha(BuildContext context) {
     return TextField(
       enableInteractiveSelection: false,
       decoration: InputDecoration(
@@ -110,8 +110,17 @@ class _InputPageState extends State<InputPage> {
         // quitar foco
         FocusScope.of(context).requestFocus(new FocusNode());
 
-        
+        _selectDate(context);
       },
     );
+  }
+
+  _selectDate(BuildContext context) async {
+    DateTime picked = await showDatePicker(
+        context: context,
+        initialDate: new DateTime.now(),
+        firstDate: new DateTime(2018),
+        lastDate: new DateTime(2025),
+      );
   }
 }
