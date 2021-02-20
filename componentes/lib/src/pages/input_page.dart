@@ -12,6 +12,8 @@ class _InputPageState extends State<InputPage> {
   String _email = '';
   String _fecha = '';
 
+  String _opcionSeleccionada = 'Volar';
+
   List<String> _poderes = ['Volar', 'Super Fuerza', 'Rayos X'];
 
   TextEditingController _inputFieldDateController = new TextEditingController();
@@ -158,10 +160,12 @@ class _InputPageState extends State<InputPage> {
 
   Widget _crearDropdown() {
     return DropdownButton(
-        items: getOpcionesDropdown(),
-        onChanged: (opt) {
-          print(opt);
-        }
-      );
+      value: _opcionSeleccionada,
+      items: getOpcionesDropdown(),
+      onChanged: (opt) {
+        setState(() {
+          _opcionSeleccionada = opt;
+        });
+      });
   }
 }
