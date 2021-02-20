@@ -17,6 +17,7 @@ class _SliderPageState extends State<SliderPage> {
         title: Text('Sliders'),
       ),
       body: Container(
+        padding: EdgeInsets.only(top: 50.0),
         child: Column(children: [
           _crearSlider(),
         ]),
@@ -26,6 +27,9 @@ class _SliderPageState extends State<SliderPage> {
 
   Widget _crearSlider() {
     return Slider(
+      activeColor: Colors.indigoAccent,
+      label: 'Tamano de la imagen',
+      divisions: 10,
       min: 10.0,
       max: 400.0,
       value: _valorSlider,
