@@ -2,6 +2,7 @@
 // mateapp
 
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 // import 'package:componentes/src/pages/home_temp.dart';
 
@@ -17,6 +18,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Componentes App',
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale('en', ''),
+        const Locale('es', 'ES'),
+      ],
       // home: HomePage(),
       initialRoute: '/',
       routes: getApplicationRoutes(),
