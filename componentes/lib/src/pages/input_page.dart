@@ -9,6 +9,7 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   String _nombre = '';
+  String _email = '';
 
   @override
   Widget build(BuildContext context) {
@@ -52,25 +53,24 @@ class _InputPageState extends State<InputPage> {
   Widget _crearPersona() {
     return ListTile(
       title: Text('Tu nombre es: $_nombre'),
+      subtitle: Text('Email: $_email'),
     );
   }
 
   Widget _crearEmail() {
     return TextField(
-      // autofocus: true,
-      textCapitalization: TextCapitalization.words,
+      keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
-        counter: Text('Letras ${_nombre.length}'),
-        hintText: 'Nombre de la persona',
-        labelText: 'Nombre',
-        helperText: 'Solo un nombre',
-        suffixIcon: Icon(Icons.accessibility),
-        icon: Icon(Icons.account_circle),
+        hintText: 'Email',
+        labelText: 'Email',
+        suffixIcon: Icon(Icons.alternate_email),
+        icon: Icon(Icons.email),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
       ),
       onChanged: (valor) {
-        _nombre = valor;
-        setState(() {});
+        setState(() {
+          _email = valor;
+        });
       },
     );
   }
