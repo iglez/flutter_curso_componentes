@@ -20,6 +20,7 @@ class _SliderPageState extends State<SliderPage> {
         padding: EdgeInsets.only(top: 50.0),
         child: Column(children: [
           _crearSlider(),
+          Expanded(child: _crearImagen()),
         ]),
       ),
     );
@@ -29,7 +30,7 @@ class _SliderPageState extends State<SliderPage> {
     return Slider(
       activeColor: Colors.indigoAccent,
       label: 'Tamano de la imagen',
-      divisions: 10,
+      // divisions: 10,
       min: 10.0,
       max: 400.0,
       value: _valorSlider,
@@ -38,6 +39,15 @@ class _SliderPageState extends State<SliderPage> {
           _valorSlider = valor;
         });
       },
+    );
+  }
+
+  Widget _crearImagen() {
+    return FadeInImage(
+      placeholder: AssetImage('assets/jar-loading.gif'), 
+      image: NetworkImage('https://embrosoft.com/wp-content/uploads/2020/03/Star-Wars-The-Mandalorian-This-is-The-Way-patches-for-clothes-The-Bounty-Hunter-frontal.jpg'),
+      width: _valorSlider,
+      fit: BoxFit.contain,
     );
   }
 }
