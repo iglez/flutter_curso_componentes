@@ -36,22 +36,34 @@ class _SliderPageState extends State<SliderPage> {
       min: 10.0,
       max: 400.0,
       value: _valorSlider,
-      onChanged: _checkBloqueado ? null : (double valor) {
-        setState(() {
-          _valorSlider = valor;
-        });
-      },
+      onChanged: _checkBloqueado
+          ? null
+          : (double valor) {
+              setState(() {
+                _valorSlider = valor;
+              });
+            },
     );
   }
 
   Widget _crearCheckbox() {
-    return Checkbox(
-        value: _checkBloqueado,
-        onChanged: (valor) {
-          setState(() {
-            _checkBloqueado = valor;  
-          });
+    // return Checkbox(
+    //   value: _checkBloqueado,
+    //   onChanged: (valor) {
+    //     setState(() {
+    //       _checkBloqueado = valor;
+    //     });
+    //   }
+    // );
+    return CheckboxListTile(
+      title: Text('Bloquear slider'),
+      value: _checkBloqueado,
+      onChanged: (valor) {
+        setState(() {
+          _checkBloqueado = valor;
         });
+      }
+    );
   }
 
   Widget _crearImagen() {
