@@ -36,7 +36,7 @@ class _SliderPageState extends State<SliderPage> {
       min: 10.0,
       max: 400.0,
       value: _valorSlider,
-      onChanged: (double valor) {
+      onChanged: _checkBloqueado ? null : (double valor) {
         setState(() {
           _valorSlider = valor;
         });
@@ -48,7 +48,9 @@ class _SliderPageState extends State<SliderPage> {
     return Checkbox(
         value: _checkBloqueado,
         onChanged: (valor) {
-          _checkBloqueado = valor;
+          setState(() {
+            _checkBloqueado = valor;  
+          });
         });
   }
 
