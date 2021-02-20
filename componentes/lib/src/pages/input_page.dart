@@ -10,6 +10,7 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   String _nombre = '';
   String _email = '';
+  String _fecha = '';
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +26,8 @@ class _InputPageState extends State<InputPage> {
           _crearEmail(),
           Divider(),
           _crearPassword(),
+          Divider(),
+          _crearFecha(),
           Divider(),
           _crearPersona(),
         ],
@@ -88,8 +91,26 @@ class _InputPageState extends State<InputPage> {
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
       ),
       onChanged: (valor) {
-        setState(() {
-        });
+        setState(() {});
+      },
+    );
+  }
+
+  Widget _crearFecha() {
+    return TextField(
+      enableInteractiveSelection: false,
+      decoration: InputDecoration(
+        hintText: 'Fecha Nacimiento',
+        labelText: 'Fecha Nacimiento',
+        suffixIcon: Icon(Icons.calendar_today),
+        icon: Icon(Icons.calendar_today),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
+      ),
+      onTap: () {
+        // quitar foco
+        FocusScope.of(context).requestFocus(new FocusNode());
+
+        
       },
     );
   }
