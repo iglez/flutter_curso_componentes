@@ -21,6 +21,8 @@ class _InputPageState extends State<InputPage> {
         children: [
           _crearInput(),
           Divider(),
+          _crearEmail(),
+          Divider(),
           _crearPersona(),
         ],
       ),
@@ -50,6 +52,26 @@ class _InputPageState extends State<InputPage> {
   Widget _crearPersona() {
     return ListTile(
       title: Text('Tu nombre es: $_nombre'),
+    );
+  }
+
+  Widget _crearEmail() {
+    return TextField(
+      // autofocus: true,
+      textCapitalization: TextCapitalization.words,
+      decoration: InputDecoration(
+        counter: Text('Letras ${_nombre.length}'),
+        hintText: 'Nombre de la persona',
+        labelText: 'Nombre',
+        helperText: 'Solo un nombre',
+        suffixIcon: Icon(Icons.accessibility),
+        icon: Icon(Icons.account_circle),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
+      ),
+      onChanged: (valor) {
+        _nombre = valor;
+        setState(() {});
+      },
     );
   }
 }
