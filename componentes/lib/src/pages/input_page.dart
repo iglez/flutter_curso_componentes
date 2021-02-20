@@ -24,6 +24,8 @@ class _InputPageState extends State<InputPage> {
           Divider(),
           _crearEmail(),
           Divider(),
+          _crearPassword(),
+          Divider(),
           _crearPersona(),
         ],
       ),
@@ -70,6 +72,23 @@ class _InputPageState extends State<InputPage> {
       onChanged: (valor) {
         setState(() {
           _email = valor;
+        });
+      },
+    );
+  }
+
+  Widget _crearPassword() {
+    return TextField(
+      obscureText: true,
+      decoration: InputDecoration(
+        hintText: 'Password',
+        labelText: 'Password',
+        suffixIcon: Icon(Icons.lock_open),
+        icon: Icon(Icons.lock),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
+      ),
+      onChanged: (valor) {
+        setState(() {
         });
       },
     );
