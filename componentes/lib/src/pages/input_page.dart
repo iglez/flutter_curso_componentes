@@ -31,6 +31,8 @@ class _InputPageState extends State<InputPage> {
           Divider(),
           _crearFecha(context),
           Divider(),
+          _crearDropdown(),
+          Divider(),
           _crearPersona(),
         ],
       ),
@@ -137,5 +139,13 @@ class _InputPageState extends State<InputPage> {
         _inputFieldDateController.text = _fecha;
       });
     }
+  }
+
+  Widget _crearDropdown() {
+    return DropdownButton(
+        items: [],
+        onChanged: (opt) {
+          print(opt);
+        });
   }
 }
