@@ -12,6 +12,8 @@ class _InputPageState extends State<InputPage> {
   String _email = '';
   String _fecha = '';
 
+  List<String> _poderes = ['Volar', 'Super Fuerza', 'Rayos X'];
+
   TextEditingController _inputFieldDateController = new TextEditingController();
 
   @override
@@ -141,11 +143,25 @@ class _InputPageState extends State<InputPage> {
     }
   }
 
+  List<DropdownMenuItem<String>> getOpcionesDropdown() {
+    List<DropdownMenuItem<String>> lista = new List();
+
+    _poderes.forEach((poder) {
+      lista.add(DropdownMenuItem(
+        child: Text(poder),
+        value: poder,
+      ));
+    });
+
+    return lista;
+  }
+
   Widget _crearDropdown() {
     return DropdownButton(
-        items: [],
+        items: getOpcionesDropdown(),
         onChanged: (opt) {
           print(opt);
-        });
+        }
+      );
   }
 }
