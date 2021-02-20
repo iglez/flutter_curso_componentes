@@ -67,6 +67,7 @@ class _InputPageState extends State<InputPage> {
     return ListTile(
       title: Text('Tu nombre es: $_nombre'),
       subtitle: Text('Email: $_email'),
+      trailing: Text(_opcionSeleccionada),
     );
   }
 
