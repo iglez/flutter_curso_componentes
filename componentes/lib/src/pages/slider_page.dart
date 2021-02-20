@@ -8,6 +8,8 @@ class SliderPage extends StatefulWidget {
 }
 
 class _SliderPageState extends State<SliderPage> {
+  double _valorSlider = 100.0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,9 +28,11 @@ class _SliderPageState extends State<SliderPage> {
     return Slider(
       min: 10.0,
       max: 400.0,
-      value: 100.0,
+      value: _valorSlider,
       onChanged: (double valor) {
-        print(valor);
+        setState(() {
+          _valorSlider = valor;
+        });
       },
     );
   }
