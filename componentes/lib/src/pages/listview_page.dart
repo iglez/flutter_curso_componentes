@@ -69,7 +69,7 @@ class _ListaPageState extends State<ListaPage> {
             return FadeInImage(
               placeholder: AssetImage('assets/jar-loading.gif'),
               image:
-                  NetworkImage('https://picsum.photos/200/300?random=$imagen'),
+                  NetworkImage('https://picsum.photos/500/400?random=$imagen'),
             );
           }),
     );
