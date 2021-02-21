@@ -22,7 +22,10 @@ class _ListaPageState extends State<ListaPage> {
     // cada que se mueve scroll
     // OJO (hot restart)
     _scrollController.addListener(() {
-      print('Scroll');
+      if (_scrollController.position.pixels ==
+          _scrollController.position.maxScrollExtent) {
+        _agregar10();
+      }
     });
   }
 
