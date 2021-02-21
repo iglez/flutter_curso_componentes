@@ -97,7 +97,19 @@ class _ListaPageState extends State<ListaPage> {
 
   Widget _crearLoading() {
     if (_isLoading) {
-      return CircularProgressIndicator();
+      return Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [  
+              CircularProgressIndicator()
+            ]
+          ),
+          SizedBox(height: 15.0)
+        ],
+      );
     }
 
     return Container();
