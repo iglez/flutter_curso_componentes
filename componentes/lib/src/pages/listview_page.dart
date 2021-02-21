@@ -8,6 +8,8 @@ class ListaPage extends StatefulWidget {
 }
 
 class _ListaPageState extends State<ListaPage> {
+  ScrollController _scrollController = new ScrollController();
+
   List<int> _enteros = [];
   int _ultimoNumero = 0;
 
@@ -16,6 +18,12 @@ class _ListaPageState extends State<ListaPage> {
     super.initState();
 
     _agregar10();
+
+    // cada que se mueve scroll
+    // OJO (hot restart)
+    _scrollController.addListener(() {
+      print('Scroll');
+    });
   }
 
   @override
@@ -32,6 +40,7 @@ class _ListaPageState extends State<ListaPage> {
     // https://picsum.photos/
 
     return ListView.builder(
+        controller: _scrollController,
         itemCount: _enteros.length,
         itemBuilder: (BuildContext context, int index) {
           final imagen = _enteros[index];
