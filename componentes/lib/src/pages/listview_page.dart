@@ -44,11 +44,15 @@ class _ListaPageState extends State<ListaPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Listas'),
-      ),
-      body: _crearLista(),
-    );
+        appBar: AppBar(
+          title: Text('Listas'),
+        ),
+        body: Stack(
+          children: [
+            _crearLista(),
+            _crearLoading(),
+          ],
+        ));
   }
 
   Widget _crearLista() {
@@ -89,5 +93,13 @@ class _ListaPageState extends State<ListaPage> {
     setState(() {});
 
     _agregar10();
+  }
+
+  Widget _crearLoading() {
+    if (_isLoading) {
+      return CircularProgressIndicator();
+    }
+
+    return Container();
   }
 }
