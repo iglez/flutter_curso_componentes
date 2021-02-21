@@ -90,6 +90,13 @@ class _ListaPageState extends State<ListaPage> {
 
   void _respuestaHttp() {
     _isLoading = false;
+
+    _scrollController.animateTo(
+      _scrollController.position.pixels + 100,
+      curve: Curves.fastOutSlowIn,
+      duration: Duration(microseconds: 250),
+    );
+
     setState(() {});
 
     _agregar10();
@@ -102,12 +109,9 @@ class _ListaPageState extends State<ListaPage> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [  
-              CircularProgressIndicator()
-            ]
-          ),
-          SizedBox(height: 15.0)
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [CircularProgressIndicator()]),
+          SizedBox(height: 15.0),
         ],
       );
     }
