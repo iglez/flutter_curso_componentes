@@ -10,6 +10,7 @@ class ListaPage extends StatefulWidget {
 }
 
 class _ListaPageState extends State<ListaPage> {
+  // Se esta creando cada que entramos
   ScrollController _scrollController = new ScrollController();
 
   List<int> _enteros = [];
@@ -31,6 +32,13 @@ class _ListaPageState extends State<ListaPage> {
         _fetchData();
       }
     });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+
+    _scrollController.dispose();
   }
 
   @override
