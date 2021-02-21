@@ -12,6 +12,13 @@ class _ListaPageState extends State<ListaPage> {
   int _ultimoNumero = 0;
 
   @override
+  void initState() {
+    super.initState();
+
+    _agregar10();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
