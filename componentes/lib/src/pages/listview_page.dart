@@ -58,17 +58,32 @@ class _ListaPageState extends State<ListaPage> {
   Widget _crearLista() {
     // https://picsum.photos/
 
-    return ListView.builder(
-        controller: _scrollController,
-        itemCount: _enteros.length,
-        itemBuilder: (BuildContext context, int index) {
-          final imagen = _enteros[index];
+    return RefreshIndicator(
+      onRefresh: _obtenerPagina1,
+      child: ListView.builder(
+          controller: _scrollController,
+          itemCount: _enteros.length,
+          itemBuilder: (BuildContext context, int index) {
+            final imagen = _enteros[index];
 
-          return FadeInImage(
-            placeholder: AssetImage('assets/jar-loading.gif'),
-            image: NetworkImage('https://picsum.photos/200/300?random=$imagen'),
-          );
-        });
+            return FadeInImage(
+              placeholder: AssetImage('assets/jar-loading.gif'),
+              image:
+                  NetworkImage('https://picsum.photos/200/300?random=$imagen'),
+            );
+          }),
+    );
+  }
+
+  Future<void> _obtenerPagina1() async {
+    Duration duration = Duration(seconds: 2);
+    new Timer(duration, () {
+      _enteros.clear();
+      _ultimoNumero++; // nuevas imagenes
+      _agregar10();
+    });
+
+    return Future.delayed(duration);
   }
 
   void _agregar10() {
