@@ -119,11 +119,16 @@ class _InputPageState extends State<InputPage> {
   }
 
   _selectDate(BuildContext context) async {
+    // https://flutter.dev/docs/development/accessibility-and-localization/internationalization#specifying-supportedlocales
+    // https://flutter.dev/docs/development/accessibility-and-localization/internationalization#setting-up
+    // https://api.flutter.dev/flutter/flutter_localizations/GlobalMaterialLocalizations-class.html
+
     DateTime picked = await showDatePicker(
       context: context,
       initialDate: new DateTime.now(),
       firstDate: new DateTime(2018),
       lastDate: new DateTime(2025),
+      locale: Locale('es', 'ES'),
     );
 
     if (picked != null) {
