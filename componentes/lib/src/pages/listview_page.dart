@@ -8,7 +8,26 @@ class ListaPage extends StatefulWidget {
 }
 
 class _ListaPageState extends State<ListaPage> {
-  List<int> _enteros = [1, 2, 3, 4, 5];
+  ScrollController _scrollController = new ScrollController();
+
+  List<int> _enteros = [];
+  int _ultimoNumero = 0;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _agregar10();
+
+    // cada que se mueve scroll
+    // OJO (hot restart)
+    _scrollController.addListener(() {
+      if (_scrollController.position.pixels ==
+          _scrollController.position.maxScrollExtent) {
+        _agregar10();
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +43,9 @@ class _ListaPageState extends State<ListaPage> {
     // https://picsum.photos/
 
     return ListView.builder(
+        controller: _scrollController,
         itemCount: _enteros.length,
         itemBuilder: (BuildContext context, int index) {
-
           final imagen = _enteros[index];
 
           return FadeInImage(
@@ -34,5 +53,14 @@ class _ListaPageState extends State<ListaPage> {
             image: NetworkImage('https://picsum.photos/200/300?random=$imagen'),
           );
         });
+  }
+
+  void _agregar10() {
+    for (var i = 1; i <= 10; i++) {
+      _ultimoNumero++;
+      _enteros.add(_ultimoNumero);
+    }
+
+    setState(() {});
   }
 }
